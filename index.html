@@ -90,7 +90,7 @@
             </div>
             <div class="baner">
               <h1>Dr. Mahesh Kumar</h1>
-              <p>Asst. Prof. IT DEpt. Bhartiya VidyaPeeth</p>
+              <p>Asst. Prof. IT Dept. Bhartiya VidyaPeeth</p>
             </div>
             <div class="baner">
               <h1>Dr Kamal Kumar Ranga</h1>
@@ -171,7 +171,7 @@
         // wishMe();
         Recognition.start();
       });
-      function voice(){
+      function voice() {
         Recognition.start();
       }
 
@@ -205,30 +205,34 @@
           let name = message.split("i am ");
           speak("We are here for National Conference on Latest Trends in Computer Science and Engineering");
         }
-        else if(message.includes("college of")){
+        else if (message.includes("college of")) {
           const text = "this is what i found on google regarding " + "vaish" + message
-          window.open(`https:///www.google.com/search?q=vaish+%${message.replace(" ","+")}`, "_blank");
+          window.open(`https:///www.google.com/search?q=vaish+%${message.replace(" ", "+")}`, "_blank");
           speak(text);
         }
         else if (message.includes("start")) {
           console.log("working")
+          const CHEER = new Audio('https://assets.codepen.io/605876/kids-cheering.mp3')
+          CHEER.volume = 0.5
+          CHEER.currentTime = 0
+          CHEER.play()
           speak("yah Sure");
-          const card = document.querySelector(".thecard");
-          card.classList.add("flip");
-          
-          const jsConfetti = new JSConfetti();
-          jsConfetti
-            .addConfetti({
-              emojis: ["🥳", "⚡️", "💥", "✨", "💫", "🌸"],
-            })
-            .then(() => jsConfetti.addConfetti());
-        }
-        else if (message.includes("open")) {
-          console.log("working")
-          speak("party toh banti h");
-          handleCurtain();
-        }
+        const card = document.querySelector(".thecard");
+        card.classList.add("flip");
+
+        const jsConfetti = new JSConfetti();
+        jsConfetti
+          .addConfetti({
+            emojis: ["🥳", "⚡️", "💥", "✨", "💫", "🌸"],
+          })
+          .then(() => jsConfetti.addConfetti());
       }
+        else if (message.includes("open")) {
+        console.log("working")
+        speak("party toh banti h");
+        handleCurtain();
+      }
+    }
 
 
       const handleCurtain = () => {
