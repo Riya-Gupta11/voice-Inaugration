@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>National Conference</title>
+  <title>Students Induction Program - 25</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 </head>
-
 <body>
-  <!-- CURTAINS -->
+  <!-- Curtains -->
   <div class="curtain curtain-1"></div>
   <div class="curtain curtain-2"></div>
 
-  <button class="power" onclick=voice()>
+  <!-- Power of Voice Button -->
+  <button class="power" onclick="startRecognition()">
     <span>Power Of V</span>
   </button>
-  <!-- EVENT INFO -->
+
+  <!-- Main container with flip card -->
   <div class="maincontainer">
     <div class="thecard">
+      <!-- Front side -->
       <div class="thefront">
         <div class="event-wrapper">
           <div class="logo">
-            <img src="college-logo.png" alt="" />
+            <!-- Optional: Add logo here if needed -->
           </div>
           <div class="college-info">
             <h1 class="college-name">Vaish College Of Engineering</h1>
-            <p class="department" id="voice">Department of CSE</p>
+            <p class="department">Department of CSE</p>
           </div>
-          <span class="welcome-msg" id="test">Welcomes You! <br> at <br>National</span>
+          <span class="welcome-msg">Welcomes You! <br /> at <br /> Students Induction Program - 25</span>
           <div class="event-info">
-            <!-- <h2 class="event-name">Techathon-23</h2> -->
             <div class="waviy">
               <span style="--i: 1">C</span>
               <span style="--i: 2">O</span>
@@ -44,230 +45,36 @@
               <span style="--i: 8">C</span>
               <span style="--i: 9">E</span>
             </div>
-            <p class="tagline">
-              Latest Trends in Computer Science And Engineering
-            </p>
+            <p class="tagline">"Unleash your curiosity, believe in yourself — every great journey begins with a single step!"</p>
           </div>
           <div class="btn-info">
             <p class="btn-action">
-              To give the permission to start the event, please click the
-              button below 👇
+              To give permission to start the event, please click the button below 👇
             </p>
             <a href="thanks.html" class="start-btn"><span class="text">Start the Meeting 😃</span></a>
           </div>
         </div>
       </div>
+
+      <!-- Back side -->
       <div class="theback">
         <div class="logo">
-          <img src="college-logo.png" alt="" />
+          <img src="vce-logo.png" alt="VCE Logo" style="width: 80px;" />
         </div>
         <div class="college-info">
           <h1 class="college-name">Vaish College Of Engineering</h1>
           <p class="department">Department of CSE</p>
         </div>
-        <div class="final-text">
-          <p>Thanks for giving us the permission.</p>
-          <p>Here we begin Today's IDEATHON - 2025</p>
+        <div class="final-text" style="font-weight: 600; font-size: 20px; margin-top: 20px;">
+          What’s next?
         </div>
-        <div class="profile-desk">
-          <div class="profile-data">
-            <div class="baner">
-              <h1>Dr. Yudhvir Singh</h1>
-              <p>Prof. & Director UIET</p>
-            </div>
-
-            <div class="baner">
-              <h1>Dr. Ankit Verma</h1>
-              <p>Prof. and Head AI/ML ADGITM</p>
-            </div>
-            <div class="baner">
-              <h1>Dr. Puneet Garg</h1>
-              <p>Dean Acadamic and Reseach, SAITM Gurugram</p>
-            </div>
-            <div class="baner">
-              <h1>Dr. Sunita</h1>
-              <p>Associate Prof. CSE Dept. SAITM Gurugram</p>
-            </div>
-            <div class="baner">
-              <h1>Dr. Mahesh Kumar</h1>
-              <p>Asst. Prof. IT Dept. Bhartiya VidyaPeeth</p>
-            </div>
-            <div class="baner">
-              <h1>Dr Kamal Kumar Ranga</h1>
-              <p>Asst. Prof. CSE Dept.
-                Government College Bahadurgarh.</p>
-            </div>
-          </div>
-        </div>
+        <img src="qr-code.png" alt="QR Code" style="width: 80px; margin: 20px auto; display: block;" />
       </div>
     </div>
+  </div>
 
-    <canvas id="confetti"></canvas>
+  <canvas id="confetti"></canvas>
 
-    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script> -->
-    <!-- <script src="./js/annyang.min.js"></script> -->
-    <script>
-      // -----------using the annyang cdn for speech---------------------------
-      // if (annyang) {
-      //   // Let's define our first command. First the text we expect, and then the function it should call
-      //   var commands = {
-      //     'play video': function(){
-      //       document.getElementById("test").style.backgroundColor("green")
-      //     }
-      //   };
-
-      //   // Add our commands to annyang
-      //   annyang.addCommands(commands);
-
-      //   // Start listening. You can call this here, or attach this call to an event, button, etc.
-      //   annyang.start();
-      // }
-      //---------------using the recognition method in javascript ------------------
-      // function voice(){
-      //   let recognition = new webkitSpeechRecognition();
-      //   recognition.lang="en-GB";
-      //   recognition.onresult = function(event){
-      //     console.log(event);
-      //     let hello = event.results[0][0].transcript;
-      //     console.log(hello)
-      //     console.log(event.results[0][0].transcript);
-      //     if(hello == "Open ."){
-      //       document.getElementById('voice').innerHTML=hello + " you said this";
-      //     }
-      //     else{
-      //       console.log("not working")
-      //     }
-      //   }
-      //   recognition.start();
-      // }
-
-
-      function speak(text) {
-        const text_speak = new SpeechSynthesisUtterance(text);
-        text_speak.rate = 1;
-        text_speak.volume = 1;
-        text_speak.pitch = 1;
-
-        window.speechSynthesis.speak(text_speak);
-      }
-      function wishMe() {
-        var day = new Date();
-        var hour = day.getHours();
-
-        if (hour >= 0 && hour < 12) {
-          speak("Good Morning");
-        }
-        else if (hour >= 12 && hour < 17) {
-          speak("Good AfterNoon");
-        }
-        else {
-          speak("Good Evening");
-        }
-
-      }
-
-      window.addEventListener('load', () => {
-        // wishMe();
-        Recognition.start();
-      });
-      function voice() {
-        Recognition.start();
-      }
-
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      const Recognition = new SpeechRecognition();
-      Recognition.onresult = (event) => {
-        const currentIndex = event.resultIndex;
-        const transcript = event.results[currentIndex][0].transcript;
-        // document.getElementById('voice').textContent += transcript + '\n';
-
-        takeCommand(transcript.toLowerCase());
-
-
-      }
-      function takeCommand(message) {
-        if (message.includes("hello")) {
-          console.log("working");
-          speak(`hello ${name} sir`)
-        }
-
-        else if (message.includes("i am ")) {
-          console.log("working")
-          console.log(`${message.split("i am ")}`)
-          let name = message.split("i am ");
-          speak(`welcome Dr. ${name} sir`)
-          wishMe();
-        }
-        else if (message.includes("why")) {
-          console.log("working")
-          console.log(`${message.split("why we are")}`)
-          let name = message.split("i am ");
-          speak("We are here for National Conference on Latest Trends in Computer Science and Engineering");
-        }
-        else if (message.includes("college of")) {
-          const text = "this is what i found on google regarding " + "vaish" + message
-          window.open(`https:///www.google.com/search?q=vaish+%${message.replace(" ", "+")}`, "_blank");
-          speak(text);
-        }
-        else if (message.includes("start")) {
-          console.log("working")
-          const CHEER = new Audio('https://assets.codepen.io/605876/kids-cheering.mp3')
-          CHEER.volume = 0.5
-          CHEER.currentTime = 0
-          CHEER.play()
-          speak("yah Sure");
-        const card = document.querySelector(".thecard");
-        card.classList.add("flip");
-
-        const jsConfetti = new JSConfetti();
-        jsConfetti
-          .addConfetti({
-            emojis: ["🥳", "⚡️", "💥", "✨", "💫", "🌸"],
-          })
-          .then(() => jsConfetti.addConfetti());
-      }
-        else if (message.includes("open")) {
-        console.log("working")
-        speak("party toh banti h");
-        handleCurtain();
-      }
-    }
-
-
-      const handleCurtain = () => {
-        curtain1.classList.add("move-left");
-        curtain2.classList.add("move-right");
-        setTimeout(function () {
-          curtain1.classList.add("none");
-          curtain2.classList.add("none");
-        }, 2000);
-
-      }
-      const curtains = document.querySelectorAll(".curtain")
-      const curtain1 = document.querySelector(".curtain-1")
-      const curtain2 = document.querySelector(".curtain-2")
-      curtains.forEach((curtain) => {
-        curtain.addEventListener("click", handleCurtain);
-      });
-
-      const btn = document.querySelector(".start-btn");
-      const card = document.querySelector(".thecard");
-      const canvas = document.querySelector("#confetti");
-      const jsConfetti = new JSConfetti();
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        card.classList.add("flip");
-        setTimeout(() => {
-          jsConfetti
-            .addConfetti({
-              emojis: ["🥳", "⚡️", "💥", "✨", "💫", "🌸"],
-            })
-            .then(() => jsConfetti.addConfetti());
-        }, 500);
-      });
-
-    </script>
+  <script src="main.js"></script>
 </body>
-
 </html>
