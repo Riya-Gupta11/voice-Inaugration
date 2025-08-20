@@ -3,7 +3,6 @@
   margin: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
@@ -21,7 +20,6 @@ body {
   position: absolute;
   width: 50%;
   height: 100vh;
-
   background-image: repeating-linear-gradient(
     to right,
     maroon,
@@ -31,6 +29,7 @@ body {
   transition: all 2s ease-out;
   z-index: 20;
 }
+
 .curtain-1 {
   left: 1%;
   top: 0;
@@ -55,13 +54,11 @@ body {
 
 .event-wrapper {
   width: 100%;
-  /* max-width: 600px; */
   height: 100%;
   border: 1px solid lightgray;
-  padding: 3rem 1.5rem;
+  padding: 12px 10px;
   text-align: center;
   background-color: white;
-  padding: 12px 10px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -78,7 +75,9 @@ body {
 }
 
 .welcome-msg {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #4a4a4a;
 }
 
 .tagline {
@@ -87,7 +86,8 @@ body {
   margin-top: 4px;
   font-size: 15px;
   font-weight: 600;
-  background-color: rgba(177, 173, 166, 0.394);
+  background-color: rgba(177, 173, 166, 0.15);
+  color: #333;
 }
 
 img {
@@ -99,11 +99,10 @@ img {
 .logo {
   display: flex;
   justify-content: center;
+  margin-bottom: 12px;
 }
 
 .btn-action {
-  /* background-color: #313131; */
-  /* color: #e2e2e2; */
   color: black;
   padding: 8px 6px;
   margin-bottom: 8px;
@@ -118,7 +117,6 @@ img {
   box-sizing: border-box;
   color: #ffffff;
   display: flex;
-  font-family: Phantomsans, sans-serif;
   font-size: 16px;
   justify-content: center;
   line-height: 1em;
@@ -127,15 +125,16 @@ img {
   padding: 3px;
   text-decoration: none;
   user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
-.start-btn:active,
-.start-btn:hover {
+.start-btn:hover,
+.start-btn:active {
   outline: 0;
+  background-image: linear-gradient(144deg, #c162ff, #3a35f7 60%, #02d7ff);
 }
 
 .start-btn span {
@@ -144,7 +143,7 @@ img {
   border-radius: 6px;
   width: 100%;
   height: 100%;
-  transition: 300ms;
+  transition: background 300ms;
 }
 
 .start-btn:hover span {
@@ -160,7 +159,9 @@ img {
 
 .waviy {
   position: relative;
+  display: inline-block;
 }
+
 .waviy span {
   position: relative;
   display: inline-block;
@@ -170,23 +171,25 @@ img {
   animation: flip 2s infinite;
   animation-delay: calc(0.2s * var(--i));
 }
+
 @keyframes flip {
   0%,
   80% {
     transform: rotateY(360deg);
   }
 }
+
 .btn-info {
   margin-top: 1rem;
 }
+
 @media screen and (max-width: 450px) {
   .waviy span {
     font-size: 25px;
   }
 }
 
-
-.power{
+.power {
   position: absolute;
   bottom: 9%;
   right: 4%;
@@ -195,13 +198,13 @@ img {
   cursor: pointer;
   border-radius: 20px;
   font-size: 14px;
-  overflow: hidden;
   color: white;
   border: 0;
   border-radius: 8px;
-  z-index : 9999;
+  z-index: 9999;
 }
-.power span{
+
+.power span {
   background-color: rgb(5, 6, 45);
   padding: 16px 24px;
   border-radius: 6px;
@@ -210,21 +213,14 @@ img {
   transition: 300ms;
 }
 
-/* THE MAINCONTAINER HOLDS EVERYTHING */
+/* Maincontainer, Card & Flip */
+
 .maincontainer {
-  /* position: absolute; */
   width: 600px;
   height: 540px;
-  /* display: flex;
-    justify-content: center;
-    align-items: center; */
   background: none;
-  /* top: 50%; */
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
 }
 
-/* THE CARD HOLDS THE FRONT AND BACK FACES */
 .thecard {
   position: relative;
   top: 0;
@@ -236,34 +232,31 @@ img {
   transition: all 0.8s ease;
 }
 
-/* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
 .thecard.flip {
   transform: rotateY(180deg);
 }
 
-/* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
-.thefront {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  backface-visibility: hidden;
-  overflow: hidden;
-  color: #000;
-}
-
-/* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
+.thefront,
 .theback {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   border-radius: 10px;
   backface-visibility: hidden;
   overflow: hidden;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.thefront {
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.theback {
   background: #fafafa;
   color: #333;
   text-align: center;
@@ -277,10 +270,6 @@ img {
 @media screen and (max-width: 475px) {
   .maincontainer {
     height: 600px;
-  }
-  .baner {
-    flex-basis: calc((100% - 0.5rem) / 2);
-    padding-inline: 0.5rem;
   }
 }
 
@@ -298,58 +287,4 @@ canvas#confetti {
   font-size: 18px;
   margin-top: 10px;
   line-height: 30px;
-}
-
-.profile-desk {
-  /* display: flex;
-    align-items: center;
-    justify-content: space-between; */
-  width: 100%;
-
-  /* background-color: #87858154; */
-  background-color: #eeeeee;
-  border-radius: 2%;
-  box-shadow: 2px 3px 4px rgb(0, 0, 0, 0.3);
-  /* margin-bottom: 6px; */
-}
-.profile-data {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.baner {
-  /* background-color: rgb(255, 255, 255); */
-  background-color: #eeeeee;
-  /* flex-basis: calc((100% - 1rem) / 2); */
-  flex-basis: 50%;
-  padding-block: 0.75rem;
-
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-}
-
-.baner h1 {
-  font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-  color: rgb(45, 81, 213);
-}
-.baner p {
-  font-size: 11px;
-  font-weight: 400;
-}
-
-@media screen and (max-width: 867px) {
-  .profile-data {
-  }
-  .baner {
-  }
-}
-@media screen and (max-width: 744px) {
-  /* .profile-desk{
-      margin-bottom: 20px;
-    } */
-  .profile-data {
-  }
-  .baner {
-  }
 }
